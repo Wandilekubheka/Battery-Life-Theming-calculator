@@ -7,11 +7,11 @@ type Props = {
 }
 
 const Button = ({text,callback}: Props) => {
-    const {width,height} = useWindowDimensions()
+    const {width} = useWindowDimensions()
     const buttonSize = width/5
     const padding = buttonSize /5 
   return (
-    <TouchableOpacity style={[styles.container,{marginLeft:padding,width:buttonSize}]}>
+    <TouchableOpacity onPress={() =>{callback(text)}} style={[styles.container,{marginLeft:padding,width:buttonSize}]}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   )
