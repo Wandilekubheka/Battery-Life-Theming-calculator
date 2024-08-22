@@ -7,10 +7,16 @@ import Button from '@/components/Button'
 type Props = {}
 
 const Index = (props: Props) => {
-  const [sum,setSum] = useState("hey")
+  const [sum,setSum] = useState("")
   const buttons = ['ac','%','d','/','7','8','9','*','4','5','6','-','1','2','3','+','0','.','l','=']
   const UpdateSum =(clickedButton:string) =>{
-    setSum(sum +clickedButton)
+    
+    if (clickedButton === "ac"){
+      console.log("click");
+      setSum("")
+    }else{
+      setSum(sum + clickedButton)
+    }
   }
 
   return (
