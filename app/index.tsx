@@ -9,6 +9,9 @@ type Props = {}
 const Index = (props: Props) => {
   const [sum,setSum] = useState("hey")
   const buttons = ['ac','%','d','/','7','8','9','*','4','5','6','-','1','2','3','+','0','.','l','=']
+  const UpdateSum =(clickedButton:string) =>{
+    setSum(sum +clickedButton)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +28,7 @@ const Index = (props: Props) => {
         data={buttons}
         keyExtractor={item => item}
         showsVerticalScrollIndicator={false}
-        renderItem={({item}) => <Button callback={setSum} text={item} />}
+        renderItem={({item}) => <Button callback={UpdateSum} text={item} />}
       />
       </View>
 
