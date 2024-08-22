@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
 
     },text:{
         fontWeight:"condensedBold",
-        fontSize:25,
+        fontSize:30,
     }
 })

@@ -3,18 +3,22 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import Button from '@/components/Button'
+import { mathOperationHandler } from './utils/MathHandler'
 
 type Props = {}
 
 const Index = (props: Props) => {
   const [sum,setSum] = useState("")
-  const buttons = ['ac','%','d','/','7','8','9','*','4','5','6','-','1','2','3','+','0','.','l','=']
+  const buttons = ['ac','%','±','/','7','8','9','*','4','5','6','-','1','2','3','+','0','.','\u232B','=']
   const UpdateSum =(clickedButton:string) =>{
     
     if (clickedButton === "ac"){
-      console.log("click");
-      setSum("")
-    }else{
+      setSum("0")
+    }else if (clickedButton ===  "="){
+      setSum(mathOperationHandler(sum))
+    }
+    
+    else{
       setSum(sum + clickedButton)
     }
   }
