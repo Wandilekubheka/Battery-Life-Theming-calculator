@@ -12,9 +12,12 @@ const Button = ({text,callback}: Props) => {
     const buttonSize = width/5
     const padding = buttonSize /5 
     const batteryLevel  = useBatteryLevel()
-    const buttonColor = batteryLevel >= 50 ? "green" : "red"
+    const red = 255 - (batteryLevel * 255)
+    const green =  batteryLevel * 255
+    console.log(red,green);
+    
   return (
-    <TouchableOpacity onPress={() =>{callback(text)}} style={[styles.container,{marginLeft:padding,width:buttonSize,backgroundColor:buttonColor}]}>
+    <TouchableOpacity onPress={() =>{callback(text)}} style={[styles.container,{marginLeft:padding,width:buttonSize,backgroundColor:`rgb(${red}, ${green}, 0)`}]}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   )

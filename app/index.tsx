@@ -14,11 +14,12 @@ const Index = (props: Props) => {
     
     if (clickedButton === "ac"){
       setSum("0")
-    }else if (clickedButton ===  "="){
-      setSum(mathOperationHandler(sum))
+    }else if (['*','-','+','/'].includes(clickedButton)){
+      setSum(mathOperationHandler(sum+clickedButton))
+
     }
     
-    else{
+    else if (clickedButton !== "="){
       setSum(sum + clickedButton)
     }
   }
@@ -51,7 +52,8 @@ export default Index
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#0D0D0D'
+    backgroundColor:'#0D0D0D',
+    paddingVertical:20
   },displayText:{
     color:'white',
     fontSize:50,
